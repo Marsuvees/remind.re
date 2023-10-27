@@ -8,30 +8,25 @@
 <body>
     <h1>Reminder Form</h1>
     <form action="process_form" method="post">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required><br><br>
-        
-        <label for="name">Reminder Name:</label>
-        <input type="text" id="reminder_name" name="reminder_name" required><br><br>
+        <label for="tenant_name">Tenant Name:</label>
+        <input type="text" id="tenant_name" name="tenant_name" required><br><br>
 
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required><br><br>
+        <label for="tenant_phone_number">Tenant Phone Number:</label>
+        <input type="text" id="tenant_phone_number" name="tenant_phone_number" required><br><br>
         
-        <label for="description">Description:</label><br>
-        <textarea id="description" name="description" rows="4" cols="50" required></textarea><br><br>
+        <label for="rent_amount">Rent Amount:</label><br>
+        <input type="number" id="rent_amount"  name="rent_amount" required></textarea><br><br>
         
-        <label for="start_date">Start Date:</label>
-        <input type="date" id="start_date" name="start_date" required><br><br>
-        
-        <label for="end_date">End Date:</label>
-        <input type="date" id="end_date" name="end_date" required><br><br>
-        
-        <label for="reminder_interval">How often would you like to recieve reminders?</label><br>
-        <select id="reminder_interval" name="reminder_interval">
-            <option value= 7 >Everyday from a week</option>
-            <option value= 1 >A day before</option>
+        <label for="rent_period_in_months">Rent Period:</label><br>
+        <select id="rent_period_in_months" name="rent_period_in_months"><br><br>
+            <option value= 1 >Every month</option>option>
+            <option value= 6 >Every 6 months</option>
+            <option value= 12 >Every 12 months</option>
         </select>
         <br><br>
+
+        <label for="date_of_initial_payment">Start Date:</label>
+        <input type="date" id="date_of_initial_payment" name="date_of_initial_payment" required><br><br>
         
         <input type="submit" value="Submit">
     </form>
