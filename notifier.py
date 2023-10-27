@@ -27,17 +27,17 @@ from dateutil.relativedelta import relativedelta
 #         smtp.send_message(email)
 #         print ('All done!!!')
 
-def due_mail(tenant_name, tenant_phone_number, initial_date_of_payment, rent_expiry_date, rent_amount):
-    html = Template(Path('./due_email.html').read_text())
+def e_mail(tenant_name, tenant_phone_number, initial_date_of_payment, rent_expiry_date, rent_amount):
+    html = Template(Path('./email.html').read_text())
     email = EmailMessage()
     email['from'] = 'NoReply'
     email['to'] = "tolujed@gmail.com"
     email['subject'] = 'Reminder Test!!!'
 
-    email.set_content(html.substitute(name = tenant_name,
+    email.set_content(html.substitute(tenant_name = tenant_name,
                                       tenant_phonenumber = tenant_phone_number,
                                       init_payment_date = initial_date_of_payment,
-                                      rent_expirty_date = rent_expiry_date,
+                                      rent_expiry_date = rent_expiry_date,
                                       rent_amount =  rent_amount),
                         'html')
 
@@ -53,7 +53,7 @@ def check_reminder():
     reminders = sess.query(ReminderDetails).all()
     for reminder in reminders:
         if (reminder.rent_expiry_date - datetime.today().date()).days <= 30:
-            due_mail(reminder.tenant_name, reminder.tenant_phone_number, reminder.date_of_initial_payment, reminder.rent_expiry_date, reminder.rent_amount)
+            e_mail(reminder.tenant_name, reminder.tenant_phone_number, reminder.date_of_initial_payment, reminder.rent_expiry_date, reminder.rent_amount)
             
 
 # Remove outdated reminders from datatbase file
