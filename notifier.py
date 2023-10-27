@@ -27,11 +27,11 @@ from dateutil.relativedelta import relativedelta
 #         smtp.send_message(email)
 #         print ('All done!!!')
 
-def due_mail(email_address, tenant_name, tenant_phone_number, initial_date_of_payment, rent_expiry_date, rent_amount):
+def due_mail(tenant_name, tenant_phone_number, initial_date_of_payment, rent_expiry_date, rent_amount):
     html = Template(Path('./due_email.html').read_text())
     email = EmailMessage()
     email['from'] = 'NoReply'
-    email['to'] = email_address
+    email['to'] = "tolujed@gmail.com"
     email['subject'] = 'Reminder Test!!!'
 
     email.set_content(html.substitute(name = tenant_name,
